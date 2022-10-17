@@ -1,0 +1,64 @@
+[
+  {
+    "id": "1b15af7c-e9f4-4e82-8216-77190a884885",
+    "title": "Symism",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
+    "bannerUrl": "https://thisstartupdoesnotexist.com/tm/hero-images/cosmic-timetraveler-1327434-unsplash.jpg",
+    "_count": {
+      "ads": 3
+    }
+  },
+  {
+    "id": "4fa0efcb-2dc7-4d8b-a187-1120b2e4fc70",
+    "title": "Midise",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",    
+    "bannerUrl": "https://thisstartupdoesnotexist.com/tm/hero-images/fabrizio-conti-1328747-unsplash.jpg",
+    "_count": {
+      "ads": 1
+    }
+  },
+  {
+    "id": "5a0ad9f2-83e0-4131-92e9-58ce36db1740",
+    "title": "Cryptonte",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",    "bannerUrl": "https://thisstartupdoesnotexist.com/tm/hero-images/mike-scaturo-1320777-unsplash.jpg",
+    "_count": {
+      "ads": 0
+    }
+  },
+  {
+    "id": "dcef6f3a-8d2f-43df-8763-24c2cf647a11",
+    "title": "Petorse",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
+    "bannerUrl": "https://thisstartupdoesnotexist.com/tm/hero-images/zack-dowdy-1382358-unsplash.jpg",
+    "_count": {
+      "ads": 0
+    }
+  },
+  {
+    "id": "f53de9c9-aeeb-4ab6-8694-04378e218679",
+    "title": "Didico Cavalos",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
+    "bannerUrl": "https://pps.whatsapp.net/v/t61.24694-24/289589268_715998113060533_6927282823107002038_n.jpg?ccb=11-4&oh=01_AVy5u9hu5U1T_Gy5EKPy0lPXod1quKqhs7T9vUTiSyzO6Q&oe=63423EAA",
+    "_count": {
+      "ads": 0
+    }
+  },
+    {
+    "id": "f53de9c9-aeeb-4ab6-8694-04378e218679",
+    "title": "Guto INC",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
+    "bannerUrl": "https://pps.whatsapp.net/v/t61.24694-24/306361422_2140310376130309_3782833221718604836_n.jpg?ccb=11-4&oh=01_AVyrDhxF_RvB82uAIvt_0opdiAOmZ8zeqAM7VL3lLr8J3Q&oe=634178ED",
+    "_count": {
+      "ads": 0
+    }
+  },
+  {
+    "id": "cd016da6-4306-445b-9264-d7f942068dc2",
+    "title": "Chicos Anacletos",
+     "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
+    "bannerUrl": "https://cdn.discordapp.com/attachments/852215136470433829/1024105435101397042/unknown.png",
+    "_count": {
+      "ads": 0
+    }
+  }
+]
