@@ -54,5 +54,8 @@ export const styles = StyleSheet.create({
     color:'#0066cc',
     padding:10,
     fontSize: 15,
+  },
+  textCadastro:{
+    padding: 10,
   }
 });
