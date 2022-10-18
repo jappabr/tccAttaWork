@@ -11,10 +11,11 @@ const CadastroScreen = () => {
     const navigation=useNavigation();
     const [senha, setSenha] = useState();
     const [email, setEmail] = useState();
+    const [nome, setNome] = useState();
     function cadastro(){
         fetch(API + 'cadastro',{
             method: "POST",
-            body: JSON.stringify({email, senha}),
+            body: JSON.stringify({nome, email, senha}),
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -38,6 +39,11 @@ const CadastroScreen = () => {
                 </View>
                 <Input 
                     icon="email-outline" 
+                    placeholder="nome"
+                    onChangeText={(nome)=>{setNome(nome)}}
+                />
+                <Input 
+                    icon="email-outline" 
                     placeholder="email"
                     onChangeText={(email)=>{setEmail(email)}}
                 />
@@ -51,6 +57,7 @@ const CadastroScreen = () => {
                     style={styles.btnLogin}
                     onPress={cadastro}
                 >
+                    <Text style={styles.textCadastro}>Cadastrar</Text>
                     <MaterialCommunityIcons name="arrow-right-thick" style={{color:"#fff"}} size={25}/>
                     <MaterialCommunityIcons name="arrow-right-thick" style={{color:"#fff"}} size={25}/>
                 </TouchableOpacity>
