@@ -38,7 +38,7 @@ const CadastroScreen = () => {
                     /> 
                 </View>
                 <Input 
-                    icon="email-outline" 
+                    icon="account-outline" 
                     placeholder="nome"
                     onChangeText={(nome)=>{setNome(nome)}}
                 />
