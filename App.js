@@ -155,7 +155,6 @@ const getTabBarVisibility = route => {
 };
 
 function App() {
-  setUser("c91cf312-53ba-4a9f-b86b-6d47927fe85f");
   return (
     <NavigationContainer>
       <AppStack/>
