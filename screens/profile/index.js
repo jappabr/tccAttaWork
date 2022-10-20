@@ -53,15 +53,15 @@ const ProfileScreen = ({navigation}) => {
 
       <View style={styles.userInfoSection}>
         <View style={styles.row}>
-          <Icon name="map-marker-radius" color="#777777" size={20}/>
+          <Icon name="map-marker-radius" color="#0066CC" size={20}/>
           <Text style={{color:"#777777", marginLeft: 20}}>{dataC.cidade} - São Paulo</Text>
         </View>
         <View style={styles.row}>
-          <Icon name="phone" color="#777777" size={20}/>
+          <Icon name="phone" color="#0066CC" size={20}/>
           <Text style={{color:"#777777", marginLeft: 20}}>(11) {dataC.wpp}</Text>
         </View>
         <View style={styles.row}>
-          <Icon name="email" color="#777777" size={20}/>
+          <Icon name="email" color="#0066CC" size={20}/>
           <Text style={{color:"#777777", marginLeft: 20}}>{dataU.email}</Text>
         </View>
       </View>
