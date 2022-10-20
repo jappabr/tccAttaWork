@@ -49,7 +49,7 @@ export default function App() {
                 />
 
                 <TouchableOpacity style={styles.btnLogin} onPress={logar}>
-                    <MaterialCommunityIcons name="arrow-right-thick" style={{color:"#fff"}} size={25}/>
+                    <Text style={styles.textLogin}>Login</Text>
                     <MaterialCommunityIcons name="arrow-right-thick" style={{color:"#fff"}} size={25}/>
                 </TouchableOpacity>
 
