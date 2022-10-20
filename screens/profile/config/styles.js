@@ -49,4 +49,22 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 26,
   },
+  viewInput:{
+    paddingTop: 20,
+  },
+  textAtualizar:{
+    padding: 10,
+    color: '#fff',
+    fontSize: 18
+  },
+  btnAtualizar:{
+    flexDirection:'row',
+    backgroundColor:'#0066cc',
+    width:'100%',
+    alignItems: 'center',
+    justifyContent:'center',
+    borderRadius: 15,
+    marginVertical: 10,
+    height: '14%',
+  }
 });
