@@ -1,51 +1,67 @@
 import {StyleSheet} from 'react-native'
 export const styles = StyleSheet.create({
-    background:{
-      flex:1,
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: '#191919'
-    },
-    logoDiv:{
-      flex:1,
-      justifyContent: 'center',
-      alignItems:'center'
-    },
-    container:{
-      flex:1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      width: '90%'
-    },
-    input:{
-      backgroundColor: '#fff',
-      width: '90%',
-      marginBottom: 15,
-      color:'#222',
-      fontSize:17,
-      borderRadius: 7,
-      padding:10,
-    },
-    btnLogin:{
-      backgroundColor:'#35aaff',
-      width:'90%',
-      height: 45,
-      alignItems: 'center',
-      justifyContent: 'center',
-      borderRadius: 7
-    },
-    txtInput:{
-      color: '#fff',
-      fontSize: 18
-    },
-    logo:{
-      width:170,
-      height:170,
-      resizeMode: 'stretch'
-    },
-    titulo:{
-      fontSize: 20,
-      fontFamily: 'OpenSans',
-      color: '#fff',
-    },
-  });
+  container: {
+    flex: 1,
+    paddingHorizontal: 20,
+    paddingVertical: 20,
+    marginTop: 20,
+    backgroundColor: "#fff"
+  },
+  Body: {
+    flex: 1
+  },
+  Form: {
+    padding: 0,
+    height: 60,
+    justifyContent: "center",
+    alignSelf: "stretch",
+    flexDirection: "row",
+    paddingTop: 13,
+    borderTopWidth: 1,
+    borderColor: "#0066cc"
+  },
+  Input: {
+    height: 40,
+    backgroundColor: "#fff",
+    borderRadius: 4,
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    borderWidth: 1,
+    borderColor: "gray",
+    flex:1,
+    marginLeft: 10,
+    padding: 10,
+  },
+  Button: {
+    height: 40,
+    width: 40,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#0066cc",
+    borderRadius: 4,
+    marginLeft: 10
+  },
+  FlatList: {
+    flex: 1,
+    marginTop: 5
+  },
+  Texto: {
+    fontSize: 17,
+    color: "gray",
+    fontWeight: "bold",
+    marginTop: 4,
+    textAlign: "center"
+  },
+  ContainerView: {
+    marginBottom: 15,
+    padding: 15,
+    borderRadius: 4,
+    backgroundColor: "#fff",
+
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    borderWidth: 1,
+    borderColor: "#525252"
+  }
+});
