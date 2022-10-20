@@ -11,7 +11,7 @@ const Input = ({icon, size, placeholder, onChangeText, secureTextEntry})=>{
         <MaterialCommunityIcons
           name={icon}
           style={{color:"#0066cc"}}
-          size={25}
+          size={28}
         />
       </View>
       <View style={styles.input}>
