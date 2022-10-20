@@ -41,8 +41,8 @@ export const styles = StyleSheet.create({
     fontSize: 20
   },
   logo:{
-    width:170,
-    height:170,
+    width:500,
+    height:500,
     resizeMode: 'stretch'
   },
   titulo:{
@@ -57,5 +57,7 @@ export const styles = StyleSheet.create({
   },
   textCadastro:{
     padding: 10,
+    color: '#fff',
+    fontSize: 18
   }
 });
