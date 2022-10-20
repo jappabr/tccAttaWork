@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
   logoDiv:{
     justifyContent: 'center',
     alignItems:'center',
-    height: '40%'
+    height: '30%'
   },
   container:{
     flex:1,
@@ -41,8 +41,8 @@ export const styles = StyleSheet.create({
     fontSize: 20
   },
   logo:{
-    width:170,
-    height:170,
+    width:650,
+    height:700,
     resizeMode: 'stretch'
   },
   titulo:{
@@ -54,5 +54,14 @@ export const styles = StyleSheet.create({
     color:'#0066cc',
     padding:10,
     fontSize: 15,
+  },
+  textTitulo:{
+    color:'#0066cc',
+    padding: 10,
+  },
+  textLogin:{
+    padding: 10,
+    color: '#fff',
+    fontSize: 18
   }
 });
