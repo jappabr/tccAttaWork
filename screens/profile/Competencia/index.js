@@ -44,8 +44,8 @@ export default function App() {
         setFormacs([...formacs, data]);
       });
 
-      setCursoInput = '';
-      setInstituicaoInput = '';
+      setCursoInput('');
+      setInstituicaoInput('');
 
 
   }
@@ -65,11 +65,11 @@ export default function App() {
         {
           text: "OK",
           onPress: () => {
-            fetch(API + 'formac/' + getUser(), {
-              method: "POST",
+            fetch(API + 'formac/', {
+              method: "DELETE",
               body: JSON.stringify({
-                desc: cursoInput,
-                nomeEscola: instituicaoInput
+                id: id,
+                userId: getUser()
               }),
               headers: {
                   'Content-Type': 'application/json'
