@@ -34,7 +34,8 @@ export const styles = StyleSheet.create({
     justifyContent:'center',
     borderRadius: 15,
     marginVertical: 10,
-    height: '6%'
+    height: '6%',
+    minHeight: 50
   },
   txtInput:{
     color: '#fff',
