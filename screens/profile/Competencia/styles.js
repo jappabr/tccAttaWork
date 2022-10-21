@@ -50,12 +50,13 @@ export const styles = StyleSheet.create({
     color: "gray",
     fontWeight: "bold",
     marginTop: 4,
-    textAlign: "center"
+    textAlign: "center",
+    paddingLeft: 10
   },
   ContainerView: {
     marginBottom: 15,
     padding: 15,
-    borderRadius: 4,
+    borderRadius: 5,
     backgroundColor: "#fff",
 
     display: "flex",
@@ -63,5 +64,17 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
     borderWidth: 1,
     borderColor: "#525252"
+  },
+  
+  containerView: {
+    marginTop: 5,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+  },
+
+  linhazinha: {
+    flex: 1,
+    flexDirection: "row"
   }
 });

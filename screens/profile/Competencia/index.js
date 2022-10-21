@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+
+import API from '../../../utils/API';
+import {getUser} from '../../../utils/user';
 
 import {
   Keyboard,
   Alert,
   KeyboardAvoidingView,
-  Platform,
-  AsyncStorage
+  Platform
 } from "react-native";
 
 import {
-  StyleSheet,
   Text,
   View,
   TextInput,
@@ -21,24 +23,34 @@ import {
 import {styles} from './styles';
 
 export default function App() {
-  const [form, setForm] = useState([]);
-  const [newForm, setNewForm] = useState("");
+  const [cursoInput, setCursoInput] = useState();
+  const [instituicaoInput, setInstituicaoInput] = useState();
+  const [formacs, setFormacs] = useState([]);
 
   async function addForm() {
-    const search = form.filter(form => form === newForm);
-
-    if (search.length !== 0) {
-      Alert.alert("Atenção", "Nome da formação repetido!");
-      return;
-    }
-
-    setForm([...form, newForm]);
-    setNewForm("");
-
     Keyboard.dismiss();
+
+    fetch(API + 'formac/' + getUser(), {
+      method: "POST",
+      body: JSON.stringify({
+        desc: cursoInput,
+        nomeEscola: instituicaoInput
+      }),
+      headers: {
+          'Content-Type': 'application/json'
+      }})
+      .then(response => response.json())
+      .then(data => {
+        setFormacs([...formacs, data]);
+      });
+
+      setCursoInput = '';
+      setInstituicaoInput = '';
+
+
   }
 
-  async function removeForm(item) {
+  async function removeFormac(id) {
     Alert.alert(
       "Deletar formação",
       "Tem certeza que deseja remover esta formação?",
@@ -52,7 +64,21 @@ export default function App() {
         },
         {
           text: "OK",
-          onPress: () => setForm(form.filter(forms => forms !== item))
+          onPress: () => {
+            fetch(API + 'formac/' + getUser(), {
+              method: "POST",
+              body: JSON.stringify({
+                desc: cursoInput,
+                nomeEscola: instituicaoInput
+              }),
+              headers: {
+                  'Content-Type': 'application/json'
+              }})
+              .then(response => response.json())
+              .then(data => {
+                setFormacs(data);
+              });
+          }
         }
       ],
       { cancelable: false }
@@ -60,22 +86,12 @@ export default function App() {
   }
 
   useEffect(() => {
-    async function carregaDados() {
-      const form = await AsyncStorage.getItem("form");
-
-      if (form) {
-        setForm(JSON.parse(form));
-      }
-    }
-    carregaDados();
+    fetch(API + 'formac/' + getUser())
+      .then(response => response.json())
+      .then(data => {
+        setFormacs(data)
+      });
   }, []);
-
-  useEffect(() => {
-    async function salvaDados() {
-      AsyncStorage.setItem("form", JSON.stringify(form));
-    }
-    salvaDados();
-  }, [form]);
 
   return (
     <>
@@ -88,14 +104,24 @@ export default function App() {
         <View style={styles.container}>
           <View style={styles.Body}>
             <FlatList
-              data={form}
-              keyExtractor={item => item.toString()}
+              data={formacs}
+              keyExtractor={item => item.id}
               showsVerticalScrollIndicator={false}
               style={styles.FlatList}
               renderItem={({ item }) => (
                 <View style={styles.ContainerView}>
-                  <Text style={styles.Texto}>{item}</Text>
-                  <TouchableOpacity onPress={() => removeForm(item)}>
+                  <View style={styles.containerView}>
+                    <View style={styles.linhazinha}>
+                      <Icon name="school" color="#204ac8" size={25}/>
+                      <Text style={styles.Texto}>{item.desc}</Text>
+                    </View>
+                    
+                    <View style={styles.linhazinha}>
+                      <Icon name="chart-timeline" color="#204ac8" size={25}/>
+                      <Text style={styles.Texto}>{item.nomeEscola}</Text>
+                    </View>
+                  </View>
+                  <TouchableOpacity onPress={() => removeFormac(item.id)}>
                     <MaterialIcons
                       name="delete-forever"
                       size={25}
@@ -112,10 +138,19 @@ export default function App() {
               style={styles.Input}
               placeholderTextColor="gray"
               autoCorrect={true}
-              value={newForm}
+              value={cursoInput}
               placeholder="Adicione sua formação"
-              maxLength={50}
-              onChangeText={text => setNewForm(text)}
+              maxLength={30}
+              onChangeText={text => setCursoInput(text)}
+            />
+            <TextInput
+              style={styles.Input}
+              placeholderTextColor="gray"
+              autoCorrect={true}
+              value={instituicaoInput}
+              placeholder="Instituicao"
+              maxLength={30}
+              onChangeText={text => setInstituicaoInput(text)}
             />
             <TouchableOpacity style={styles.Button} onPress={() => addForm()}>
               <Ionicons name="ios-add" size={20} color="white" />
