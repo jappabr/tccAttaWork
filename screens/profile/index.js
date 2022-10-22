@@ -15,12 +15,12 @@ const ProfileScreen = ({navigation}) => {
     const[dataU, setDataU] = useState({})
     const[dataC, setDataC] = useState({})
     const[dataF, setDataF] = useState({})
-    useEffect(() => {
     fetch(API + 'formac/' + getUser())
-    .then(response => response.json())
+      .then(response => response.json())
       .then(dataF=>{
         setDataF(dataF)
-      })    
+      });
+    useEffect(() => {
     fetch(API + 'curriculo/' + getUser())
     .then(response => response.json())
       .then(dataC=>{
