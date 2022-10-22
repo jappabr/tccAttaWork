@@ -2,7 +2,8 @@ import {StyleSheet} from 'react-native'
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
+    height: '100%'
   },
   userInfoSection: {
     paddingHorizontal: 30,
@@ -50,7 +51,7 @@ export const styles = StyleSheet.create({
     lineHeight: 26,
   },
   viewInput:{
-    paddingTop: 20,
+    marginTop: 20
   },
   textAtualizar:{
     padding: 10,
@@ -60,11 +61,15 @@ export const styles = StyleSheet.create({
   btnAtualizar:{
     flexDirection:'row',
     backgroundColor:'#0066cc',
-    width:'100%',
+    width:'90%',
     alignItems: 'center',
     justifyContent:'center',
     borderRadius: 15,
     marginVertical: 10,
-    height: '14%',
+    height: 50,
+    margin: "5%"
+  },
+  input: {
+    flexDirection: 'row',
   }
 });

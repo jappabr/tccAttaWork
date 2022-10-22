@@ -6,15 +6,16 @@ const {width, height} = Dimensions.get("screen");
 
 const Input = ({icon, size, placeholder, onChangeText, secureTextEntry})=>{
   return(
-    <View style={styles.container}>
-      <View style={styles.icon}>
+    <View style={icon ? styles.containerWithIcon : styles.container }>
+      {icon ? <View style={styles.icon}>
         <MaterialCommunityIcons
           name={icon}
           style={{color:"#0066cc"}}
           size={28}
         />
-      </View>
-      <View style={styles.input}>
+      </View> : <></>}
+      
+      <View style={icon ? styles.inputWithIcon : styles.input}>
         <TextInput
           style={{fontSize: 16}}
           placeholder={placeholder}
