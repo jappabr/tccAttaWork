@@ -57,7 +57,7 @@ export function Roleta() {
     const removeTopCard = useCallback((direction) => {
         setCards((prevState) => {
         if(direction==-1){
-          Linking.openURL('http://api.whatsapp.com/send?phone=5511' + prevState[0].wpp + '&text=Olá, vim pelo aplicativo do AttaWork e tenho interesse na vaga: ' + prevState[0].title)
+          Linking.openURL('http://api.whatsapp.com/send?phone=5511' + prevState[0].wpp + '&text=Olá, vim pelo aplicativo do AttaWork e tenho interesse na vaga: ' + prevState[0].title )
         }
           if(prevState.length == 1){
               return cardsJson
