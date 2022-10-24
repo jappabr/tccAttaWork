@@ -36,12 +36,12 @@ export default function App() {
                         source={require("../../src/logo.png")}
                     />
                 </View>
-                <Input 
+                <Input
                     icon="email-outline" 
                     placeholder="email"
                     onChangeText={(email)=>{setEmail(email)}}
                 />
-                <Input 
+                <Input
                     icon="key-outline" 
                     placeholder="senha"
                     secureTextEntry={true}
