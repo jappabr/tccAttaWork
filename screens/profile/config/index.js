@@ -76,6 +76,7 @@ const ProfileScreen = ({ navigation }) => {
       setNome('');
       setWpp('');
       setDataNasc('');
+      loadScreen();
     });
   }
 
