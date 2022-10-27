@@ -21,6 +21,7 @@ import {
 } from "react-native";
 
 import {styles} from './styles';
+import { Empty } from "../../../components/Empty";
 
 export default function App() {
   const [cursoInput, setCursoInput] = useState();

@@ -58,30 +58,27 @@ const ProfileScreen = ({ navigation }) => {
     })
     .then(response => response.json())
     .then(() => {
-      setEmail('');
-      setSenha('');
-      loadScreen();
-    });
-
-    fetch(API + 'curriculo/' + getUser(), {
-      method: "PATCH",
-      body: JSON.stringify({cidade, nome, wpp, dataNasc}),
-      headers: {
-          'Content-Type': 'application/json'
-      },
-    })
-    .then(response => response.json())
-    .then(() => {
-      setCidade('');
-      setNome('');
-      setWpp('');
-      setDataNasc('');
-      loadScreen();
+      setEmail(null);
+      setSenha(null);
+      fetch(API + 'curriculo/' + dataC.id, {
+        method: "PATCH",
+        body: JSON.stringify({cidade, nome, wpp, dataNasc, userId: getUser()}),
+        headers: {
+            'Content-Type': 'application/json'
+        },
+      })
+      .then(response => response.json())
+      .then(() => {
+        setCidade(null);
+        setNome(null);
+        setWpp(null);
+        setDataNasc(null);
+        loadScreen();
+      });
     });
   }
 
   return (
-    
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <View style={styles.userInfoSection}>

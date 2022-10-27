@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import {styles} from "./styles";
 import API from '../../utils/API'
+import { Empty } from "../../components/Empty";
 
 export default function HomeScreen() {
     const [posts, setPosts] = React.useState([]);
