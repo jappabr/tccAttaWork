@@ -105,6 +105,11 @@ export default function App() {
           <View style={styles.Body}>
             <FlatList
               data={formacs}
+              ListEmptyComponent={({item}) => (
+                <View>
+                  <Empty text="Sem Dados"></Empty>
+                </View>
+              )}
               keyExtractor={item => item.id}
               showsVerticalScrollIndicator={false}
               style={styles.FlatList}

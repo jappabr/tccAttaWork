@@ -23,6 +23,11 @@ export default function HomeScreen() {
             <FlatList
                 style={styles.feed}
                 data={posts}
+                ListEmptyComponent={({item}) => (
+                  <View>
+                    <Empty text="Sem Dados"></Empty>
+                  </View>
+                )}
                 renderItem={({ item }) => {
                     const post = item;
                     return(
