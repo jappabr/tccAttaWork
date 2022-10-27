@@ -1,4 +1,4 @@
-import { View, SafeAreaView, TouchableOpacity, KeyboardAvoidingView, ScrollView } from 'react-native';
+import { View, SafeAreaView, TouchableOpacity, KeyboardAvoidingView, ScrollView, ToastAndroid } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {
@@ -58,8 +58,8 @@ const ProfileScreen = ({ navigation }) => {
     })
     .then(response => response.json())
     .then(() => {
-      setEmail(null);
-      setSenha(null);
+      setEmail('');
+      setSenha('');
       fetch(API + 'curriculo/' + dataC.id, {
         method: "PATCH",
         body: JSON.stringify({cidade, nome, wpp, dataNasc, userId: getUser()}),
@@ -69,13 +69,14 @@ const ProfileScreen = ({ navigation }) => {
       })
       .then(response => response.json())
       .then(() => {
-        setCidade(null);
-        setNome(null);
-        setWpp(null);
-        setDataNasc(null);
+        setCidade('');
+        setNome('');
+        setWpp('');
+        setDataNasc('');
         loadScreen();
-      });
-    });
+        ToastAndroid.show('Dados atualizados com sucesso!', ToastAndroid.SHORT);
+      }).catch(() => ToastAndroid.show('Banco de dados offline', ToastAndroid.SHORT));
+    }).catch(() => ToastAndroid.show('Banco de dados offline', ToastAndroid.SHORT));
   }
 
   return (
@@ -204,7 +205,7 @@ const ProfileScreen = ({ navigation }) => {
             />
           </View>
           <Input
-            placeholder="Digite seu telefone"
+            placeholder="Digite seu telefone - sem o DDD"
             value={wpp}
             onChangeText={(value) => { setWpp(value) }}
           />

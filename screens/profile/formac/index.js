@@ -47,8 +47,6 @@ export default function App() {
 
       setCursoInput('');
       setInstituicaoInput('');
-
-
   }
 
   async function removeFormac(id) {

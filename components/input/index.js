@@ -4,7 +4,7 @@ import { styles } from './styles';
 
 const {width, height} = Dimensions.get("screen");
 
-const Input = ({icon, size, placeholder, onChangeText, secureTextEntry})=>{
+const Input = ({icon, size, placeholder, onChangeText, secureTextEntry, value})=>{
   return(
     <View style={icon ? styles.containerWithIcon : styles.container }>
       {icon ? <View style={styles.icon}>
@@ -22,6 +22,7 @@ const Input = ({icon, size, placeholder, onChangeText, secureTextEntry})=>{
           placeholderTextColor="gray"
           onChangeText={onChangeText}
           secureTextEntry={secureTextEntry}
+          value={value}
         />
       </View>
     </View>

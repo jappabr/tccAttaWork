@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Text, View, TextInput, Image, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
+import {Text, View, TextInput, Image, TouchableOpacity, KeyboardAvoidingView, ToastAndroid } from 'react-native';
 import { styles } from './styles';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Input from '../../components/input/index'
@@ -12,6 +12,9 @@ export default function App() {
     const [senha, setSenha] = useState();
     const [email, setEmail] = useState();
     function logar() {
+        if(!email || !senha)
+            return ToastAndroid.show('Informe Email e Senha', ToastAndroid.SHORT);
+        ToastAndroid.show('Entrando...', ToastAndroid.SHORT);
         fetch(API + 'login',{
             method: "POST",
             body: JSON.stringify({email, senha}),
@@ -22,10 +25,13 @@ export default function App() {
         .then(response => response.json())
         .then(data => {
             if(data) {
+                if(data.error)
+                    return ToastAndroid.show(data.error, ToastAndroid.SHORT); 
                 setUser(data);
                 navigation.navigate("TabStack");
+                ToastAndroid.show('Logado com sucesso!', ToastAndroid.SHORT);
             }
-        })
+        }).catch(() => ToastAndroid.show('Banco de dados offline', ToastAndroid.SHORT));
     }
     return (
         <KeyboardAvoidingView style={styles.background}>
