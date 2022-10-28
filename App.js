@@ -12,7 +12,7 @@ import Profile from './screens/profile/index';
 import Formac from './screens/profile/formac/index';
 import Xp from './screens/profile/xp/index';
 import ProfileConfig from './screens/profile/config/index';
-import Competencia from './screens/profile/competencia/index';
+import Competencia from './screens/profile/Competencia/index';
 
 import Login from './screens/login/index'
 import Cadastro from './screens/cadastro/index1'
@@ -127,15 +127,6 @@ const TabNavigator = () => {
         options={{
           tabBarIcon: ({color, size}) => (
             <MaterialCommunityIcons name="account" color={color} size={size} />
-            ),
-        }}
-      />
-      <Tab.Screen
-        name="Configuração"
-        component={ProfileConfig}
-        options={{
-          tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons name="wrench" color={color} size={22} />
             ),
         }}
       />

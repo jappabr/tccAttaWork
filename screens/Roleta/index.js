@@ -68,7 +68,7 @@ export function Roleta() {
         swipe.setValue({x: 0, y: 0});
     }, [swipe, cardsJson]);
 
-    const handleChoice = useCallback((direction) => { // TODO navigate Chat
+    const handleChoice = useCallback((direction) => {
         Animated.timing(swipe.x, {
             toValue: direction * THEME.CARD.OUT_OF_SCREEN,
             duration: 500,
