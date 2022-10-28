@@ -93,7 +93,7 @@ const ProfileScreen = ({navigation}) => {
             <Text style={styles.menuItemText}>Experiência</Text>
           </View>
         </TouchableRipple>
-        <TouchableRipple onPress={() => {navigation.navigate("profileCompetencia")}}>
+        <TouchableRipple onPress={() => {navigation.navigate("profileCurriculo")}}>
           <View style={styles.menuItem}>
             <Icon name="note-outline" color="#204ac8" size={25}/>
             <Text style={styles.menuItemText}>Currículo</Text>

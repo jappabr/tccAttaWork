@@ -12,7 +12,7 @@ import Profile from './screens/profile/index';
 import Formac from './screens/profile/formac/index';
 import Xp from './screens/profile/xp/index';
 import ProfileConfig from './screens/profile/config/index';
-import Competencia from './screens/profile/Competencia/index';
+import Curriculo from './screens/profile/curriculo/index';
 
 import Login from './screens/login/index'
 import Cadastro from './screens/cadastro/index1'
@@ -81,8 +81,8 @@ const ProfileStack = () => {
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name="profileCompetencia"
-        component={Competencia}
+        name="profileCurriculo"
+        component={Curriculo}
         options={{headerShown: false}}
       />
     </Stack.Navigator>
