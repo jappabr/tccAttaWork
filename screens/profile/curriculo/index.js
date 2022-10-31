@@ -102,7 +102,7 @@ export default function App() {
             </View>
             {alluser.xps?.map(data => {
                 return (
-                    <View style={{ flexDirection: "column", marginBottom: 5, paddingLeft: 10, borderWidth: 0.75, borderRadius: 4, borderColor: "black" }}>
+                    <View style={{ flexDirection: "column", margin: 10, paddingLeft: 10, borderWidth: 0.75, borderRadius: 4, borderColor: "black" }}>
                         <View style={{ flexDirection: "row" }}>
                             <Icon name="city-variant-outline" color="#204ac8" size={25} />
                             <Text style={{ fontSize: 20, fontFamily: 'Raleway_300Light', color: "gray", marginBottom: 2 }}> {data.nomeEmpresa}</Text>
