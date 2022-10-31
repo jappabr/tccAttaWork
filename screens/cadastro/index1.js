@@ -1,7 +1,7 @@
-import { View, Text, KeyboardAvoidingView, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native'
+import { View, Text, KeyboardAvoidingView, StyleSheet, Image, TextInput, TouchableOpacity, ToastAndroid } from 'react-native'
 import React, {useState} from 'react'
 import API from '../../utils/API';
-import {useNavigation, ToastAndroid} from "@react-navigation/native"
+import {useNavigation} from "@react-navigation/native"
 import Input from '../../components/input/index'
 import {styles} from "./styles"
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -12,7 +12,10 @@ const CadastroScreen = () => {
     const [senha, setSenha] = useState();
     const [email, setEmail] = useState();
     const [nome, setNome] = useState();
-    function cadastro(){
+    function cadastro() {
+        if(!email || !senha)
+            return ToastAndroid.show('Informe Email e Senha', ToastAndroid.SHORT);
+        ToastAndroid.show('Cadastrando...', ToastAndroid.SHORT);
         fetch(API + 'cadastro',{
             method: "POST",
             body: JSON.stringify({nome, email, senha}),
@@ -20,14 +23,19 @@ const CadastroScreen = () => {
                 'Content-Type': 'application/json'
             },
         })
-        .then(response => { response.json() })
-        .then(data=>{
-            if(data){
-                setUser(data.id)
-                navigation.navigate("TabStack")
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            if(data) {
+                if(data.error)
+                    return ToastAndroid.show(data.error, ToastAndroid.SHORT); 
+                setUser(data);
+                navigation.navigate("TabStack");
+                ToastAndroid.show('Conta criada com sucesso! Atualize seus dados nas configurações do perfil.', ToastAndroid.SHORT);
             }
-        });
+        }).catch(() => ToastAndroid.show('Banco de dados offline', ToastAndroid.SHORT));
     }
+
     return (
         <KeyboardAvoidingView style={styles.background}>
             <View style={styles.container}>
