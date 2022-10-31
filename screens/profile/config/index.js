@@ -1,5 +1,6 @@
-import { View, SafeAreaView, TouchableOpacity, KeyboardAvoidingView, ScrollView, ToastAndroid } from 'react-native';
+import { View, SafeAreaView, TouchableOpacity, KeyboardAvoidingView, ScrollView, ToastAndroid, Platform } from 'react-native';
 import React, { useEffect, useState } from 'react';
+import * as ImagePicker from 'expo-image-picker';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {
   Avatar,
@@ -13,14 +14,16 @@ import API from '../../../utils/API';
 import { styles } from './styles'
 import Input from '../../../components/input';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import mime from "mime";
+
 const ProfileScreen = ({ navigation }) => {
   const [dataU, setDataU] = useState({})
   const [dataC, setDataC] = useState({})
   const [dataF, setDataF] = useState({})
-
+  
   const [email, setEmail] = useState();
   const [senha, setSenha] = useState();
-
+  
   const [cidade, setCidade] = useState();
   const [nome, setNome] = useState();
   const [wpp, setWpp] = useState();
@@ -79,17 +82,56 @@ const ProfileScreen = ({ navigation }) => {
     }).catch(() => ToastAndroid.show('Banco de dados offline', ToastAndroid.SHORT));
   }
 
+  const upload = async(photo) => {
+    const data = new FormData();
+
+    const newImageUri =  "file:///" + photo.uri.split("file:/").join("");
+  
+    data.append('photo', {
+      uri : newImageUri,
+      type: mime.getType(newImageUri),
+      name: getUser()
+    });
+
+    fetch(API + 'upload/' + getUser(), {
+      method: 'POST',
+      body: data,
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'multipart/form-data',
+      },
+    }).then((response) => response.json())
+      .then((response) => setDataU({...dataU, profilePic: response}))
+      .catch((error) => console.log('error', error));
+  };
+
+  const handleChoosePhoto = async() => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [1,1],
+      quality: 1,
+    });
+
+    if (!result.cancelled) {
+      upload(result);
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <View style={styles.userInfoSection}>
           <View style={{ flexDirection: 'row', marginTop: 60 }}>
-            <Avatar.Image
-              source={{
-                uri: dataU.profilePic,
-              }}
-              size={80}
-            />
+            <TouchableOpacity
+              onPress={handleChoosePhoto}>
+              <Avatar.Image
+                source={{
+                  uri: dataU.profilePic
+                }}
+                size={80}
+              />
+            </TouchableOpacity>
             <View style={{ marginLeft: 20 }}>
               <Title style={[styles.title, {
                 marginTop: 15,
