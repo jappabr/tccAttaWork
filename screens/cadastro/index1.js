@@ -25,7 +25,6 @@ const CadastroScreen = () => {
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data)
             if(data) {
                 if(data.error)
                     return ToastAndroid.show(data.error, ToastAndroid.SHORT); 

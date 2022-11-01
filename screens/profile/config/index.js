@@ -17,9 +17,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import mime from "mime";
 
 const ProfileScreen = ({ navigation }) => {
-  const [dataU, setDataU] = useState({})
-  const [dataC, setDataC] = useState({})
-  const [dataF, setDataF] = useState({})
+  const [data, setData] = useState({})
   
   const [email, setEmail] = useState();
   const [senha, setSenha] = useState();
@@ -30,21 +28,11 @@ const ProfileScreen = ({ navigation }) => {
   const [dataNasc, setDataNasc] = useState();
 
   function loadScreen() {
-    fetch(API + 'formac/' + getUser())
-      .then(response => response.json())
-      .then(dataF => {
-        setDataF(dataF)
-      })
-    fetch(API + 'curriculo/' + getUser())
-      .then(response => response.json())
-      .then(dataC => {
-        setDataC(dataC)
-      })
-    fetch(API + 'user/' + getUser())
-      .then(response => response.json())
-      .then(dataU => {
-        setDataU(dataU)
-      })
+    fetch(API + 'alluser/' + getUser())
+      .then(res => res.json())
+      .then(async (user) => {
+        setData(user)
+    });
   }
 
   useEffect(() => {
@@ -101,7 +89,7 @@ const ProfileScreen = ({ navigation }) => {
         'Content-Type': 'multipart/form-data',
       },
     }).then((response) => response.json())
-      .then((response) => setDataU({...dataU, profilePic: response}))
+      .then((response) => setData({...data, profilePic: response}))
       .catch((error) => console.log('error', error));
   };
 
@@ -127,7 +115,7 @@ const ProfileScreen = ({ navigation }) => {
               onPress={handleChoosePhoto}>
               <Avatar.Image
                 source={{
-                  uri: dataU.profilePic
+                  uri: data.profilePic
                 }}
                 size={80}
               />
@@ -136,7 +124,7 @@ const ProfileScreen = ({ navigation }) => {
               <Title style={[styles.title, {
                 marginTop: 15,
                 marginBottom: 5,
-              }]}>{dataC.nome}</Title>
+              }]}>{data.curriculo?.nome}</Title>
             </View>
           </View>
         </View>
@@ -144,15 +132,15 @@ const ProfileScreen = ({ navigation }) => {
         <View style={styles.userInfoSection}>
           <View style={styles.row}>
             <Icon name="map-marker-radius" color="#0066CC" size={20} />
-            <Text style={{ color: "#777777", marginLeft: 20 }}>{dataC.cidade} - São Paulo</Text>
+            <Text style={{ color: "#777777", marginLeft: 20 }}>{data.curriculo?.cidade} - São Paulo</Text>
           </View>
           <View style={styles.row}>
             <Icon name="phone" color="#0066CC" size={20} />
-            <Text style={{ color: "#777777", marginLeft: 20 }}>(11) {dataC.wpp}</Text>
+            <Text style={{ color: "#777777", marginLeft: 20 }}>(11) {data.curriculo?.wpp}</Text>
           </View>
           <View style={styles.row}>
             <Icon name="email" color="#0066CC" size={20} />
-            <Text style={{ color: "#777777", marginLeft: 20 }}>{dataU.email}</Text>
+            <Text style={{ color: "#777777", marginLeft: 20 }}>{data.email}</Text>
           </View>
         </View>
 
@@ -161,11 +149,11 @@ const ProfileScreen = ({ navigation }) => {
             borderRightColor: '#dddddd',
             borderRightWidth: 1
           }]}>
-            <Title>{(String(dataC.dataNasc).split('/')[2] - 2022) * -1}</Title>
+            <Title>{data.curriculo?.dataNasc ? ((String(data.curriculo?.dataNasc).split('/')[2] - 2022) * -1) : '-'}</Title>
             <Caption>Anos</Caption>
           </View>
           <View style={styles.infoBox}>
-            <Title>{dataF.length}</Title>
+            <Title>{data.formacs?.length}</Title>
             <Caption>Diplomas</Caption>
           </View>
         </View>
