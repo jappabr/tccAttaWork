@@ -51,7 +51,7 @@ const ProfileScreen = ({ navigation }) => {
     .then(() => {
       setEmail('');
       setSenha('');
-      fetch(API + 'curriculo/' + dataC.id, {
+      fetch(API + 'curriculo/' + data.curriculo?.id, {
         method: "PATCH",
         body: JSON.stringify({cidade, nome, wpp, dataNasc, userId: getUser()}),
         headers: {
@@ -66,8 +66,8 @@ const ProfileScreen = ({ navigation }) => {
         setDataNasc('');
         loadScreen();
         ToastAndroid.show('Dados atualizados com sucesso!', ToastAndroid.SHORT);
-      }).catch(() => ToastAndroid.show('Banco de dados offline', ToastAndroid.SHORT));
-    }).catch(() => ToastAndroid.show('Banco de dados offline', ToastAndroid.SHORT));
+      }).catch((err) => ToastAndroid.show('Banco de dados offline', ToastAndroid.SHORT));
+    }).catch((err) => ToastAndroid.show('Banco de dados offline', ToastAndroid.SHORT));
   }
 
   const upload = async(photo) => {
