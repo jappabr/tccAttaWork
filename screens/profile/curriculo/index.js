@@ -48,14 +48,12 @@ const createPDF = async () => {
         });
 };
 
-
-
 export default function App() {
-    let [fontsLoaded] = useFonts({
+    const [alluser, setAlluser] = React.useState([]);
+    const [fontsLoaded] = useFonts({
         Raleway_300Light,
         Raleway_500Medium,
     });
-    const [alluser, setAlluser] = React.useState([]);
     React.useEffect(() => {
         fetch(API + 'alluser/' + getUser())
             .then(response => response.json())
@@ -63,53 +61,52 @@ export default function App() {
                 setAlluser(data)
             });
     }, []);
-    return (
+    return (!fontsLoaded ? <></> :
         <ScrollView style={styles.container}>
             <View style={styles.fundoPerfil}>
-                <View style={{ paddingTop: 85 }}>
+                <View style={{ paddingTop: 55 }}>
                     <Image
                         style={styles.profilePicture}
                         source={{ uri: alluser.profilePic }}
                     />
 
                 </View>
-                <Text style={{ fontSize: 24, fontFamily: 'Raleway_500Medium', color: "#fff", textTransform: 'uppercase' }}>{alluser.curriculo?.nome}</Text>
-                <Text style={{ fontSize: 20, fontFamily: 'Raleway_300Light', color: "#fff" }}>{alluser.curriculo?.cidade} - SP</Text>
-                <Text style={{ fontSize: 20, fontFamily: 'Raleway_300Light', color: "#fff" }}>{alluser.curriculo?.wpp ? ("(11)" + alluser.curriculo.wpp) : " "}</Text>
-                <Text style={{ fontSize: 20, fontFamily: 'Raleway_300Light', color: "#fff", paddingBottom: 2 }}>{alluser.email}</Text>
+                <Text style={{ fontSize: 24, fontFamily: 'Raleway_500Medium', color: "#fff", textTransform: 'uppercase', fontWeight: 'bold' }}>{alluser.curriculo?.nome}</Text>
+                <Text style={{ fontSize: 18, fontFamily: 'Raleway_300Light', color: "#fff" }}>{alluser.curriculo?.cidade} - SP</Text>
+                <Text style={{ fontSize: 18, fontFamily: 'Raleway_300Light', color: "#fff", paddingBottom: 2 }}>{alluser.email}{alluser.curriculo?.wpp ? ("- (11)" + alluser.curriculo.wpp) : " "}</Text>
 
             </View>
-            <View>
-                <Text style={{ fontSize: 20, fontFamily: 'Raleway_300Light', color: "#000", textTransform: 'uppercase', paddingBottom: 10, paddingLeft: 10 }}>Formação Acadêmica</Text>
+            <View style={{marginTop: 10}}>
+                <Text style={{ fontSize: 20, fontFamily: 'Raleway_300Light', color: "#000", textTransform: 'uppercase', paddingLeft: 10, fontWeight: 'bold'}}>Formação Acadêmica</Text>
             </View>
             {alluser.formacs?.map(data => {
                 return (
-                    <View style={{ flexDirection: "column", margin: 10, paddingLeft: 10, borderWidth: 0.75, borderRadius: 4, borderColor: "black" }}>
+                    <View key={data.id} style={{ flexDirection: "column", margin: 10 }}>
                         <View style={{ flexDirection: "row", }}>
                             <Icon name="school" color="#0066CC" size={25} />
-                            <Text style={{ fontSize: 20, fontFamily: 'Raleway_300Light', color: "gray", marginBottom: 1 }}> {data.nomeEscola}</Text>
+                            <Text style={{ fontSize: 20, fontFamily: 'Raleway_500Light', color: "#0066cc", marginBottom: 1 }}> {data.nomeEscola}</Text>
                         </View>
                         <View style={{ flexDirection: "row" }}>
                             <Icon name="chart-timeline" color="#204ac8" size={25} />
-                            <Text style={{ fontSize: 20, fontFamily: 'Raleway_300Light', color: "gray", marginBottom: 2 }}> {data.desc}</Text>
+                            <Text style={{ fontSize: 20, fontFamily: 'Raleway_300Light', color: "#404040" }}> {data.desc}</Text>
                         </View>
                     </View>
                 )
             })}
             <View style={styles.separa}></View>
-            <View>
-                <Text style={{ fontSize: 20, fontFamily: 'Raleway_300Light', color: "#000", textTransform: 'uppercase', paddingBottom: 10, paddingLeft: 10 }}>Experiência</Text>
+            <View style={{marginTop: 10}}>
+                <Text style={{ fontSize: 20, fontFamily: 'Raleway_300Light', color: "#000", textTransform: 'uppercase', paddingLeft: 10, fontWeight: 'bold'}}>Experiência</Text>
             </View>
             {alluser.xps?.map(data => {
                 return (
-                    <View style={{ flexDirection: "column", margin: 10, paddingLeft: 10, borderWidth: 0.75, borderRadius: 4, borderColor: "black" }}>
+                    <View key={data.id} style={{ flexDirection: "column", margin: 10 }}>
                         <View style={{ flexDirection: "row" }}>
-                            <Icon name="city-variant-outline" color="#204ac8" size={25} />
-                            <Text style={{ fontSize: 20, fontFamily: 'Raleway_300Light', color: "gray", marginBottom: 2 }}> {data.nomeEmpresa}</Text>
+                            <Icon name="city-variant-outline" color="#0066CC" size={25} />
+                            <Text style={{ fontSize: 20, fontFamily: 'Raleway_500Light', color: "#0066cc", marginBottom: 1 }}> {data.nomeEmpresa}</Text>
                         </View>
                         <View style={{ flexDirection: "row" }}>
                             <Icon name="briefcase-outline" color="#204ac8" size={25} />
-                            <Text style={{ fontSize: 20, fontFamily: 'Raleway_300Light', color: "gray", marginBottom: 2 }}> {data.vaga}</Text>
+                            <Text style={{ fontSize: 20, fontFamily: 'Raleway_300Light', color: "#404040" }}> {data.vaga}</Text>
                         </View>
                     </View>
                 )

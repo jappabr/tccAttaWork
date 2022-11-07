@@ -23,6 +23,7 @@ export const styles = StyleSheet.create({
     backgroundColor: '#0066cc',
     flex: 1,
     alignItems:'center',
+    paddingBottom: 10
   },
   pictureView:{
     backgroundColor: "gray",
@@ -32,7 +33,11 @@ export const styles = StyleSheet.create({
     backgroundColor: "gray",
     height: 150,
     width: 150,
-    borderRadius: 100
+    borderRadius: 100,
+    shadowColor: "#000",
+    shadowOffset: {width: 5, height:5},
+    shadowOpacity: 1,
+    shadowRadius: 10,
   },
   textTitulo:{
     color: '#000',
