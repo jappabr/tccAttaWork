@@ -1,8 +1,8 @@
 import React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
-import {NavigationContainer} from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import Home from './screens/home/index';
 import { Roleta } from './screens/Roleta/index';
 
@@ -14,6 +14,8 @@ import Xp from './screens/profile/xp/index';
 import ProfileConfig from './screens/profile/config/index';
 import Curriculo from './screens/profile/curriculo/index';
 
+import Search from './screens/search/index';
+
 import Login from './screens/login/index'
 import Cadastro from './screens/cadastro/index1'
 
@@ -24,35 +26,35 @@ const Stack = createNativeStackNavigator();
 const LoginStack = createNativeStackNavigator();
 const HomeStack = createNativeStackNavigator();
 
-const AppStack = () =>{
-  return(
+const AppStack = () => {
+  return (
     <HomeStack.Navigator>
       <HomeStack.Screen
         name="LoginStack"
         component={AuthStack}
-        options={{headerShown:false}}
+        options={{ headerShown: false }}
       />
       <HomeStack.Screen
         name="TabStack"
         component={TabNavigator}
-        options={{headerShown:false}}
+        options={{ headerShown: false }}
       />
     </HomeStack.Navigator>
   )
 }
 
 const AuthStack = () => {
-  return(
+  return (
     <LoginStack.Navigator>
       <LoginStack.Screen
         name="Login"
         component={Login}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <LoginStack.Screen
         name="Cadastro"
         component={Cadastro}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
     </LoginStack.Navigator>
   )
@@ -63,27 +65,27 @@ const ProfileStack = () => {
       <Stack.Screen
         name="Profile"
         component={Profile}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="profileConfig"
         component={ProfileConfig}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="profileFormac"
         component={Formac}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="profileXp"
         component={Xp}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="profileCurriculo"
         component={Curriculo}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
     </Stack.Navigator>
   );
@@ -95,19 +97,19 @@ const TabNavigator = () => {
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: true,
-        tabBarStyle: {backgroundColor: 'white'},
+        tabBarStyle: { backgroundColor: 'white' },
         tabBarInactiveTintColor: 'gray',
         tabBarActiveTintColor: '#0066cc',
       }}>
       <Tab.Screen
         name="Home"
         component={Home}
-        options={({route}) => ({
+        options={({ route }) => ({
           tabBarStyle: {
             display: getTabBarVisibility(route),
             backgroundColor: 'white',
           },
-          tabBarIcon: ({color, size}) => (
+          tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="home" color={color} size={size} />
           ),
         })}
@@ -116,18 +118,27 @@ const TabNavigator = () => {
         name="Cards"
         component={Roleta}
         options={{
-          tabBarIcon: ({color, size}) => (
+          tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="cards-playing" color={color} size={size} />
-            ),
+          ),
         }}
       />
+        <Tab.Screen
+          name="Pesquisar"
+          component={Search}
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="magnify" color={color} size={size} />
+            ),
+          }}
+        />
       <Tab.Screen
         name="Perfil"
         component={ProfileStack}
         options={{
-          tabBarIcon: ({color, size}) => (
+          tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="account" color={color} size={size} />
-            ),
+          ),
         }}
       />
     </Tab.Navigator>
@@ -139,7 +150,7 @@ const getTabBarVisibility = route => {
   const routeName = getFocusedRouteNameFromRoute(route) ?? 'Feed';
   // console.log(routeName);
 
-  if( routeName == 'GameDetails' ) {
+  if (routeName == 'GameDetails') {
     return 'none';
   }
   return 'flex';
@@ -148,7 +159,7 @@ const getTabBarVisibility = route => {
 function App() {
   return (
     <NavigationContainer>
-      <AppStack/>
+      <AppStack />
     </NavigationContainer>
   );
 }
