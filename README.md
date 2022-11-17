@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=200px height=200px src="https://imgur.com/a/wh7U69B" alt="Logo do Projeto"></a>
+ <img width=200px height=200px src="https://cdn.discordapp.com/attachments/952563808155615252/1042595366291382342/ATTAWORK.png" alt="Logo do Projeto"></a>
 </p>
 
 <h3 align="center">AttaWork 1.0</h3>
