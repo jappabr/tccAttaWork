@@ -1,11 +1,51 @@
-# Sample Snack app
+<p align="center">
+  <a href="" rel="noopener">
+ <img width=200px height=200px src="https://imgur.com/a/wh7U69B" alt="Logo do Projeto"></a>
+</p>
 
-Open the `App.js` file to start writing some code. You can preview the changes directly on your phone or tablet by scanning the **QR code** or use the iOS or Android emulators. When you're done, click **Save** and share the link!
+<h3 align="center">AttaWork 1.0</h3>
 
-When you're ready to see everything that Expo provides (or if you want to use your own editor) you can **Download** your project and use it with [expo-cli](https://docs.expo.io/get-started/installation).
+<div align="center">
 
-All projects created in Snack are publicly available, so you can easily share the link to this project via link, or embed it on a web page with the `<>` button.
+  [![Status](https://img.shields.io/badge/status-active-success.svg)]() 
+  [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
 
-If you're having problems, you can tweet to us [@expo](https://twitter.com/expo) or ask in our [forums](https://forums.expo.io/c/snack).
+</div>
 
-Snack is Open Source. You can find the code on the [GitHub repo](https://github.com/expo/snack).
+---
+
+<p align="center"> Projeto do TCC, focado em ajudar jovens a encontrarem empregos, de maneira fácil e rápida
+    <br> 
+</p>
+
+## 📝 Índice
++ [Sobre](#sobre)
++ [Instalação](#install)
++ [Ferramentas](#feito_com)
++ [Agradecimentos](#agradecimentos)
+
+## 🧐 Sobre o AttaWork <a name = "sobre"></a>
+O projeto, com o proposito de ajudar as comunidades a encontrarem trabalhos locais, onde o empresario de pequeno negocio possui uma empresa, porém, quando acaba precisando contratar alguem, acaba não contratando uma pessoa que esteja próxima.
+\
+\
+Sendo assim, o projeto é apresentado com a ideia de um aplicativo que de forma simples junta jovens procurando um primeiro emprego, e as pequenas empresas que divulgam a vaga através de um card moderno e cativante, com a opção de conversar pelo WhatsApp.
+
+## ✅ Como baixar <a name = "install"></a>
+- [Clique Aqui](https://drive.google.com/drive/folders/13LW6-52f2cHlOznX95OOp2AE075a8CJL?usp=share_link)
+Assim que abrir a pasta do Google Drive, baixe o arquivo APK e instale no seu dispositivo.
+
+😖 Disponivel somente para android.
+
+- Qualquer bug encontrado, reporte para que possamos arrumar! 🙏
+
+
+## ⛏️ Ferramentas <a name = "feito_com"></a>
+- [Expo](https://docs.expo.dev/) - React Native Development
+- [Prisma](https://www.prisma.io/) - Database Tool
+- [Sqlite](https://www.sqlite.org/index.html) - Database
+
+
+## 🎉 Agradecimentos <a name = "agradecimentos"></a>
++ O grupo do AttaWork agradece a todos que contribuíram, para a realização desse projeto. 
++ E especialmente aos nossos professores Fabiano e Rodolfo pelos ensinamentos e orientações.
+
